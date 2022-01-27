@@ -1,7 +1,6 @@
-package com.example.prep2.data
+package com.laurad.packageapp.data
 
-import com.example.prep2.model.ApkInfo
-import io.reactivex.Observable
+import com.laurad.packageapp.model.ApkInfo
 import retrofit2.http.GET
 import retrofit2.http.Path
 

@@ -1,12 +1,12 @@
-package com.example.prep2.ui.packages
+package com.laurad.packageapp.ui.packages
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.prep2.R
-import com.example.prep2.model.PackageInfo
+import com.laurad.packageapp.R
+import com.laurad.packageapp.model.PackageInfo
 
 
 class PackageAdapter(private val dataSet: MutableList<PackageInfo>, val packageClicked: (packageInfo: PackageInfo) -> Unit) :

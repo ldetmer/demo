@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.prep2">
+    package="com.laurad.packageapp">
   <uses-permission android:name="android.permission.INTERNET" />
 
   <application
@@ -10,9 +10,9 @@
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
       android:theme="@style/Theme.Prep2"
-      android:name=".PrepApp">
+      android:name="com.laurad.packageapp.PackageApp">
     <activity
-        android:name=".ui.MainActivity"
+        android:name="com.laurad.packageapp.ui.MainActivity"
         android:exported="true"
         >
       <intent-filter>

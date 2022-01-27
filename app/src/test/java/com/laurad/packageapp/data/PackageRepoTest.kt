@@ -1,9 +1,8 @@
-package com.example.prep2.data
+package com.laurad.packageapp.data
 
-
-import com.example.prep2.model.ApkInfo
-import com.example.prep2.model.PackageDao
-import com.example.prep2.model.PackageInfo
+import com.laurad.packageapp.model.ApkInfo
+import com.laurad.packageapp.model.PackageDao
+import com.laurad.packageapp.model.PackageInfo
 import com.nhaarman.mockitokotlin2.doReturn
 import com.nhaarman.mockitokotlin2.doThrow
 import com.nhaarman.mockitokotlin2.mock
@@ -18,7 +17,6 @@ import org.mockito.Mockito
 import org.mockito.junit.MockitoJUnitRunner
 import retrofit2.HttpException
 
-
 @RunWith(MockitoJUnitRunner::class)
 class PackageRepoTest {
 
@@ -28,7 +26,7 @@ class PackageRepoTest {
 
     val packageApiResponse = ApkInfo(listOf(matchingPackage))
 
-    private val mockApi = mock<Api> ()
+    private val mockApi = mock<Api>()
     private val mockPackageDao = mock<PackageDao> {
         on { lookupPackageInfoByName(packageName) } doReturn (matchingPackage)
     }
@@ -56,7 +54,7 @@ class PackageRepoTest {
     @ExperimentalCoroutinesApi
     @Test
      fun successfulRetrievalOfPackagesUpdatesDB() = runBlockingTest {
-        whenever( mockApi.getPackages(API_ENDPOINT_LATEST)) doReturn packageApiResponse
+        whenever(mockApi.getPackages(API_ENDPOINT_LATEST)) doReturn packageApiResponse
 
         val result = subject.getPackages()
 
@@ -68,14 +66,14 @@ class PackageRepoTest {
 
    @Test
     fun errorOnRetrievalOfPackagesRetrievesFromDB() = runBlockingTest {
-        val mockErrorResponse = mock<HttpException> ()
-        whenever(mockApi.getPackages(API_ENDPOINT_LATEST)) doThrow mockErrorResponse
-        whenever(mockPackageDao.getAll()) doReturn listOf(matchingPackage)
+       val mockErrorResponse = mock<HttpException>()
+       whenever(mockApi.getPackages(API_ENDPOINT_LATEST)) doThrow mockErrorResponse
+       whenever(mockPackageDao.getAll()) doReturn listOf(matchingPackage)
 
-        val result = subject.getPackages()
+       val result = subject.getPackages()
 
-        verify(mockPackageDao, Mockito.times(1)).getAll()
-        Assert.assertEquals(result.get(0), matchingPackage)
-        Assert.assertTrue(result.size == 1)
-    }
+       verify(mockPackageDao, Mockito.times(1)).getAll()
+       Assert.assertEquals(result.get(0), matchingPackage)
+       Assert.assertTrue(result.size == 1)
+   }
 }

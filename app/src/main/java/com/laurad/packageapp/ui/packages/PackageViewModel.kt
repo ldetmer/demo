@@ -1,10 +1,10 @@
-package com.example.prep2
+package com.laurad.packageapp
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.prep2.data.PackageRepo
-import com.example.prep2.model.PackageInfo
+import com.laurad.packageapp.data.PackageRepo
+import com.laurad.packageapp.model.PackageInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

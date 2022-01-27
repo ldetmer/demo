@@ -1,4 +1,4 @@
-package com.example.prep2.ui.packages
+package com.laurad.packageapp.ui.packages
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import com.example.prep2.PackageViewModel
-import com.example.prep2.databinding.FragmentPackageDetailsBinding
+import com.laurad.packageapp.PackageViewModel
+import com.laurad.packageapp.databinding.FragmentPackageDetailsBinding
+
 import dagger.hilt.android.AndroidEntryPoint
 
 const val SELECTED_PAGE = "selected_page"

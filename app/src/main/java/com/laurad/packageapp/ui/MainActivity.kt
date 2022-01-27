@@ -1,8 +1,8 @@
-package com.example.prep2.ui
+package com.laurad.packageapp.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.prep2.databinding.ActivityMainBinding
+import com.laurad.packageapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

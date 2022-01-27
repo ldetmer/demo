@@ -1,6 +1,6 @@
-package com.example.prep2.data
+package com.laurad.packageapp.data
 
-import com.example.prep2.model.PackageInfo
+import com.laurad.packageapp.model.PackageInfo
 import timber.log.Timber
 
 import javax.inject.Inject

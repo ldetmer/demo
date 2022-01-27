@@ -1,4 +1,4 @@
-package com.example.prep2.model
+package com.laurad.packageapp.model
 
 import androidx.room.Dao
 import androidx.room.Delete

@@ -1,9 +1,9 @@
-package com.example.prep2.di
+package com.laurad.packageapp.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.prep2.data.Api
-import com.example.prep2.data.AppDatabase
+import com.laurad.packageapp.data.Api
+import com.laurad.packageapp.data.AppDatabase
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.hilt.InstallIn

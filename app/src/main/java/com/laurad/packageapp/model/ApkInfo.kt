@@ -1,4 +1,4 @@
-package com.example.prep2.model
+package com.laurad.packageapp.model
 
 import com.google.gson.annotations.SerializedName
 

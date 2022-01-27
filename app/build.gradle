@@ -11,7 +11,7 @@ android {
   buildToolsVersion "30.0.3"
 
   defaultConfig {
-    applicationId "com.example.prep2"
+    applicationId "com.laurad.packageapp"
     minSdkVersion 21
     targetSdkVersion 31
     versionCode 1

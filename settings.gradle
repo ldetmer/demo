@@ -1,2 +1,2 @@
-rootProject.name = "prep2"
+rootProject.name = "packageapp"
 include ':app'

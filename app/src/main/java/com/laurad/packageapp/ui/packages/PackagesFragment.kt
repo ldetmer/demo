@@ -1,4 +1,4 @@
-package com.example.prep2.ui.packages
+package com.laurad.packageapp.ui.packages
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,11 +8,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.prep2.PackageViewModel
-import com.example.prep2.R
+import com.laurad.packageapp.PackageViewModel
+import com.laurad.packageapp.R
 
-import com.example.prep2.databinding.FragmentPackagesBinding
-import com.example.prep2.model.PackageInfo
+import com.laurad.packageapp.databinding.FragmentPackagesBinding
+import com.laurad.packageapp.model.PackageInfo
 import dagger.hilt.android.AndroidEntryPoint
 
 
