@@ -12,9 +12,9 @@
       android:theme="@style/Theme.Prep2"
       android:name=".PrepApp">
     <activity
-        android:name=".MainActivity"
+        android:name=".ui.MainActivity"
         android:exported="true"
-        android:label="@string/title_activity_main">
+        >
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 

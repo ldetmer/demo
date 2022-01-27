@@ -1,7 +1,7 @@
 <resources>
-  <string name="app_name">prep2</string>
-  <string name="title_activity_main">MainActivity</string>
-  <string name="title_home">Home</string>
-  <string name="title_dashboard">Dashboard</string>
-  <string name="title_notifications">Notifications</string>
+  <string name="app_name">Package Review</string>
+  <string name="package_details_text">Package Details</string>
+  <string name="package_details_name_label">name:</string>
+  <string name="package_details_version_label">version:</string>
+  <string name="package_minimum_version_label">minimum version:</string>
 </resources>

@@ -1,18 +1,5 @@
 package com.example.prep2.di
 
-import android.app.Application
-import android.content.Context
-import androidx.fragment.app.Fragment
-import com.example.prep2.MainActivity
-import com.example.prep2.PackageViewModel
-import com.example.prep2.PrepApp
-import com.example.prep2.ui.dashboard.DashboardFragment
-import com.example.prep2.ui.home.HomeFragment
-import dagger.BindsInstance
-import dagger.Component
-
-import javax.inject.Singleton
-
 /*@Singleton
 @Component(
     modules = [

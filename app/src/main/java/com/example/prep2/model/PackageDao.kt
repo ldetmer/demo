@@ -7,16 +7,18 @@ import androidx.room.Query
 
 @Dao
 interface PackageDao {
-    @Query("SELECT * FROM PackageName")
-    fun getAll(): List<PackageName>
+    @Query("SELECT * FROM PackageInfo")
+    fun getAll(): List<PackageInfo>
 
     @Insert
-    fun insertAll( packages: List<PackageName>)
+    fun insertAll( packages: List<PackageInfo>)
 
+    @Query ("SELECT * FROM PackageInfo WHERE name = :name")
+    fun lookupPackageInfoByName(name: String): PackageInfo?
 
     @Delete
-    fun delete(packageName: PackageName)
+    fun delete(packageName: PackageInfo)
 
-    @Query("DELETE FROM PackageName")
+    @Query("DELETE FROM PackageInfo")
     fun deleteAll()
 }
