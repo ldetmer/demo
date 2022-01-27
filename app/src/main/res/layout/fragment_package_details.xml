@@ -29,25 +29,20 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:orientation="vertical"
-      app:layout_constraintGuide_percent=".3"
-      />
+      app:layout_constraintGuide_percent=".25"
 
-  <androidx.constraintlayout.widget.Guideline
-      android:id="@+id/guideline_start_column_1"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:orientation="vertical"
-      app:layout_constraintGuide_percent=".1"
       />
 
   <TextView
       android:id="@+id/package_name_title"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      android:textAlignment="textEnd"
       android:layout_marginTop="8dp"
+      android:layout_marginRight="16dp"
+      app:layout_constraintRight_toLeftOf="@+id/guideline_start_column_2"
       android:text="@string/package_details_name_label"
       android:textSize="18sp"
-      app:layout_constraintLeft_toLeftOf="@+id/guideline_start_column_1"
       app:layout_constraintTop_toBottomOf="@+id/title"
       />
 
@@ -63,12 +58,14 @@
 
   <TextView
       android:id="@+id/package_version_title"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      android:layout_marginRight="16dp"
       android:layout_marginTop="8dp"
       android:text="@string/package_details_version_label"
+
       android:textSize="18sp"
-      app:layout_constraintLeft_toLeftOf="@+id/guideline_start_column_1"
+      app:layout_constraintRight_toLeftOf="@+id/guideline_start_column_2"
       app:layout_constraintTop_toBottomOf="@+id/package_name_title"
       />
 
@@ -84,12 +81,16 @@
 
   <TextView
       android:id="@+id/package_minimum_version_title"
-      android:layout_width="wrap_content"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
+      android:maxLines="2"
+      android:lines="2"
+      android:textAlignment="textEnd"
       android:layout_marginTop="8dp"
+      android:layout_marginRight="16dp"
+      app:layout_constraintRight_toLeftOf="@+id/guideline_start_column_2"
       android:text="@string/package_minimum_version_label"
       android:textSize="18sp"
-      app:layout_constraintLeft_toLeftOf="@+id/guideline_start_column_1"
       app:layout_constraintTop_toBottomOf="@+id/package_version_title"
       />
 
@@ -100,7 +101,7 @@
       android:layout_marginTop="8dp"
       android:textSize="18sp"
       app:layout_constraintLeft_toLeftOf="@+id/guideline_start_column_2"
-      app:layout_constraintTop_toBottomOf="@+id/package_version_title"
+      app:layout_constraintBottom_toBottomOf="@+id/package_minimum_version_title"
       />
 
 

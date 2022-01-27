@@ -3,79 +3,49 @@ package com.example.prep2
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.prep2.listeners.RetrievePackagesListener
-import com.example.prep2.model.ApiRepo
+import com.example.prep2.data.PackageRepo
 import com.example.prep2.model.PackageInfo
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.reactivex.disposables.CompositeDisposable
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 
 @HiltViewModel
-class PackageViewModel @Inject constructor (val  apiRepo: ApiRepo): ViewModel(), RetrievePackagesListener {
+class PackageViewModel @Inject constructor(val packageRepo: PackageRepo) : ViewModel() {
 
-    val disposables = CompositeDisposable()
+    // live model observer to listen for package selected
+    val currentSelectedPackage : MutableLiveData<PackageInfo> by lazy {
+        MutableLiveData<PackageInfo>()
+    }
 
+    // live model observer to listen for list of package updates
+    val currentPackages: MutableLiveData<List<PackageInfo>> by lazy {
+        MutableLiveData<List<PackageInfo>>()
+    }
 
-        // Create a LiveData with a String
-        val currentPackages: MutableLiveData<List<PackageInfo>> by lazy {
-
-                MutableLiveData<List<PackageInfo>>().also {
-                    viewModelScope.launch {
-                        getSomething()
-                    }
-                }
-
+    //async functional call to get packages and post to live model when receives response from repo
+    //show how live model works with I/O call response
+    fun getPackages() {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                currentPackages.postValue(packageRepo.getPackages())
+            }
         }
 
-    val currentSelectedPackage= MutableLiveData<PackageInfo> ()
+    }
 
     fun setPackage(selectedPackage: PackageInfo) {
         currentSelectedPackage.postValue(selectedPackage)
     }
 
-    fun setPackage (packageName: String) {
-        apiRepo.lookUpPackage(packageName)?.let {
+    //async functional call to lookup package from DB, potentially if offline and fragment is resumed
+    fun setPackage(packageName: String) {
+        packageRepo.lookUpPackage(packageName)?.let {
             setPackage(it)
         }
     }
-
-
-       suspend fun getSomething() {
-
-            //viewModelScope.launch {
-           apiRepo.retrievePackagesListener = this
-                 val result = apiRepo.getPackages()
-
-                currentPackages.postValue(result)
-            //}
-           // api.getApiCall("latest").subscribeOn(Schedulers.io()).subscribe({
-
-
-
-
-
-
-
-
-
-
-        //    }, {println("error " + it.message)
-          //      currentPackages.postValue(db.packageDao().getAll().map { it.name } )}).also {  disposables.add(it)}
-        }
-
-    override fun onCleared() {
-        super.onCleared()
-        disposables.dispose()
-    }
-
-    override fun update(names: List<PackageInfo>) {
-        currentPackages.postValue(names)
-    }
-
-
-
 
 }
 

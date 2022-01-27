@@ -2,15 +2,12 @@ package com.example.prep2.di
 
 import android.content.Context
 import androidx.room.Room
-import com.example.prep2.PackageViewModel
-import com.example.prep2.api.Api
-import com.example.prep2.model.AppDatabase
+import com.example.prep2.data.Api
+import com.example.prep2.data.AppDatabase
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
 import dagger.Provides
-import dagger.hilt.android.qualifiers.ActivityContext
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
@@ -56,8 +53,4 @@ object NetworkModule {
         ).build()
     }
 
-
-
-    //@Provides
-    //fun providesPackageViewModel(api: Api) = PackageViewModel(api)// = Temp(api)
 }

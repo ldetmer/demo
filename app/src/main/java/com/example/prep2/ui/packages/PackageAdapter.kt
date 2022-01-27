@@ -6,11 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.prep2.R
-import com.example.prep2.listeners.PackageSeletedListener
 import com.example.prep2.model.PackageInfo
 
 
-class PackageAdapter(val dataSet: MutableList<PackageInfo>, val packageSeletedListener: PackageSeletedListener) :
+class PackageAdapter(private val dataSet: MutableList<PackageInfo>, val packageClicked: (packageInfo: PackageInfo) -> Unit) :
     RecyclerView.Adapter<PackageAdapter.ViewHolder>() {
 
 
@@ -31,10 +30,15 @@ class PackageAdapter(val dataSet: MutableList<PackageInfo>, val packageSeletedLi
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         viewHolder.packageTextView.text = dataSet[position].name
-        viewHolder.packageTextView.setOnClickListener { packageSeletedListener.update(dataSet[position]) }
+        viewHolder.packageTextView.setOnClickListener { packageClicked.invoke(dataSet[position]) }
     }
 
 
     override fun getItemCount() = dataSet.size
+
+    fun updatePackages(packages: List<PackageInfo>) {
+        dataSet.clear()
+        dataSet.addAll(packages)
+    }
 
 }
